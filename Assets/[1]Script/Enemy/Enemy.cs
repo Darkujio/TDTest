@@ -1,23 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 using System;
 
 public class Enemy : MonoBehaviour
 {
     private LineRenderer LR;
-    private int Health;
-    private int Speed;
-    private int Damage;
+    protected int Health;
+    public int Speed;
+    protected int Damage;
 
-    protected Vector3[] Path;
+    public List<Vector3> Path;
 
     public Action OnDie;
     public Action OnReady;
     
-    public void GetStartingInfo(Enemies ScObj)
+    public void GetStartingInfo(Enemies ScObj, LineRenderer lr)
     {
+        LR = lr;
         Health = ScObj.GetHealth;
         Speed = ScObj.GetSpeed;
         Damage = ScObj.GetDamage;
@@ -34,10 +36,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    Vector3[] GetPath()
+    List<Vector3> GetPath()
     {
         Vector3[] positions = new Vector3[LR.positionCount];
         LR.GetPositions(positions);
-        return positions;
+        List<Vector3> PositionList = positions.ToList();
+        return PositionList;
     }
 }

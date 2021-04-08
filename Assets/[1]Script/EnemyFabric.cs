@@ -8,6 +8,7 @@ public class EnemyFabric : MonoBehaviour
     [SerializeField] LevelController LevelController;
     [SerializeField] Transform StartingPos;
     [SerializeField] Transform EnemiesParent;
+    [SerializeField] LineRenderer LR;
 
     List<WaveEnemies> WavesEnemiesStorage;
     public void Init()
@@ -24,7 +25,7 @@ public class EnemyFabric : MonoBehaviour
                 {
                     GameObject enemy = Instantiate(encounter.Enemy.EnemyPrefab,StartingPos.position,Quaternion.identity,EnemiesParent);
                     WavesEnemiesStorage.Last().EnemiesInWave.Add(enemy);
-                    enemy.GetStartingInfo(encounter.)
+                    enemy.GetComponent<Enemy>().GetStartingInfo(encounter.Enemy, LR);
                 }
             }
         }

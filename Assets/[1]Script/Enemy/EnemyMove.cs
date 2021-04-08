@@ -1,23 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class EnemyMove : Enemy
+public class EnemyMove : MonoBehaviour
 {
-    protected Vector3[] PathDinamic;
+    protected List<Vector3> PathDinamic;
+    protected int Speed;
+    bool Ready = false;
 
-    void Start()
+    private Enemy enemy;
+
+    void Awake()
     {
-        OnReady+= OnReadySetPath;
+        enemy = gameObject.GetComponent<Enemy>();
+        enemy.OnReady += OnReadySetPath;
     }
 
     void OnReadySetPath()
     {
-        PathDinamic = Path;
+        PathDinamic = enemy.Path;
+        Speed = enemy.Speed;
+        Ready = true;
     }
 
     void Update()
     {
-        
+        if (Ready) FollowPath();
+    }
+
+    void FollowPath()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, PathDinamic[0], Speed*Time.deltaTime);
+        if (Vector3.Distance(transform.position, PathDinamic[0]) < 0.01f) PathDinamic.RemoveAt(0);
     }
 }
