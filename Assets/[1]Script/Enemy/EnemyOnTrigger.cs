@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class EnemyOnTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D col)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (col.gameObject.name == "Castle") Destroy(gameObject);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class EnemyFabric : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class EnemyFabric : MonoBehaviour
     [SerializeField] LineRenderer LR;
 
     List<WaveEnemies> WavesEnemiesStorage;
+    public Action EnemiesGenerated;
     public void Init()
     {
         List<Wave> Waves = LevelController.GetWaves();
@@ -26,10 +28,13 @@ public class EnemyFabric : MonoBehaviour
                     GameObject enemy = Instantiate(encounter.Enemy.EnemyPrefab,StartingPos.position,Quaternion.identity,EnemiesParent);
                     WavesEnemiesStorage.Last().EnemiesInWave.Add(enemy);
                     enemy.GetComponent<Enemy>().GetStartingInfo(encounter.Enemy, LR);
+                    enemy.SetActive(false);
                 }
             }
         }
-
+        
+        LevelController.WavesEnemiesStorage = WavesEnemiesStorage;
+        EnemiesGenerated?.Invoke();
         //Testing
         foreach(WaveEnemies En in WavesEnemiesStorage)
         {
@@ -39,9 +44,4 @@ public class EnemyFabric : MonoBehaviour
             }
         }
     }
-}
-
-class WaveEnemies
-{
-    public List<GameObject> EnemiesInWave;
 }

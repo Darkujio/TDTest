@@ -15,3 +15,5 @@ MonoBehaviour:
   Encounters:
   - Enemy: {fileID: 11400000, guid: 70f61e2792ca9c8499c84a1fdfe3489c, type: 2}
     Amount: 5
+  WaveLength: 10
+  Interval: 1

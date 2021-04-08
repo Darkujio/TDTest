@@ -6,6 +6,8 @@ using UnityEngine;
 public class Wave : ScriptableObject
 {
     [SerializeField] private Encounter[] Encounters;
+    [Tooltip("Make it more than Interval * Amount of enemies")]public int WaveLength;
+    public int Interval;
     public Encounter[] GetEncounters
     {
         get
@@ -15,11 +17,5 @@ public class Wave : ScriptableObject
     }
 
     
-}
-
-[System.Serializable]
-public class Encounter
-{
-    [SerializeField] public Enemies Enemy;
-    [SerializeField] public int Amount;
+    
 }

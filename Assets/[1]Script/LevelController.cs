@@ -8,7 +8,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private int Start_Coins;
     [SerializeField] private int CurrentWave;
     [SerializeField] private List<Wave> Waves;
-
+    public List<WaveEnemies> WavesEnemiesStorage;
     public List<Wave> GetWaves()
     {
         return Waves;
