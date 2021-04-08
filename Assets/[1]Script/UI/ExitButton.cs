@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Controller : MonoBehaviour
+public class ExitButton : MonoBehaviour
 {
-    [SerializeField] Button ExitButton;
+    [SerializeField] Button Button;
 
     void Start()
     {
-        ExitButton.onClick.AddListener(CloseGame);
+        Button.onClick.AddListener(CloseGame);
     }
 
     void CloseGame()

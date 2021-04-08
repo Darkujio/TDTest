@@ -43,4 +43,9 @@ public class Enemy : MonoBehaviour
         List<Vector3> PositionList = positions.ToList();
         return PositionList;
     }
+
+    public int GetDamage()
+    {
+        return Damage;
+    }
 }

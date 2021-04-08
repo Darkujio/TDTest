@@ -6,7 +6,7 @@ using System;
 public class WaveController : MonoBehaviour
 {
     [SerializeField] LevelController LevelController;
-    [SerializeField]EnemyFabric EnemyFabric;
+    [SerializeField] EnemyFabric EnemyFabric;
     List<WaveEnemies> WavesEnemiesStorage;
     List<Wave> Waves;
 
@@ -17,7 +17,7 @@ public class WaveController : MonoBehaviour
 
     void FirstActivate()
     {
-        WavesEnemiesStorage = LevelController.WavesEnemiesStorage;
+        WavesEnemiesStorage = EnemyFabric.GetWavesEnemiesStorage();
         Waves = LevelController.GetWaves();
         Activator(0);
     }
@@ -43,8 +43,6 @@ public class WaveController : MonoBehaviour
     {
         int PendTime = Waves[WaveNumber].WaveLength;
         yield return new WaitForSeconds(PendTime);
-        print(PendTime);
-        print("NextWave");
         Activator(WaveNumber+1);
     }
 }

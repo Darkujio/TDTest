@@ -33,15 +33,19 @@ public class EnemyFabric : MonoBehaviour
             }
         }
         
-        LevelController.WavesEnemiesStorage = WavesEnemiesStorage;
         EnemiesGenerated?.Invoke();
         //Testing
-        foreach(WaveEnemies En in WavesEnemiesStorage)
-        {
-            foreach(GameObject enemy in En.EnemiesInWave)
-            {
-                print(enemy.name);
-            }
-        }
+        // foreach(WaveEnemies En in WavesEnemiesStorage)
+        // {
+        //     foreach(GameObject enemy in En.EnemiesInWave)
+        //     {
+        //         print(enemy.name);
+        //     }
+        // }
+    }
+
+    public List<WaveEnemies> GetWavesEnemiesStorage()
+    {
+        return WavesEnemiesStorage;
     }
 }

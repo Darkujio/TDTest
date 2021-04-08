@@ -531,7 +531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 57.99997, y: -155}
+  m_AnchoredPosition: {x: 58, y: -155}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &388416702
@@ -806,6 +806,7 @@ Transform:
   - {fileID: 984879113}
   - {fileID: 1555581650}
   - {fileID: 809044025}
+  - {fileID: 1126513118}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1694,7 +1695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 903513038}
   - component: {fileID: 903513039}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2054,6 +2055,51 @@ Transform:
   m_Father: {fileID: 2014825071}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1126513117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126513118}
+  - component: {fileID: 1126513119}
+  m_Layer: 0
+  m_Name: LifeHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1126513118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126513117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406726505}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1126513119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126513117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68823ed80ecf6b547b05471e055c830d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelController: {fileID: 984879114}
+  EnemyFabric: {fileID: 1555581651}
 --- !u!1 &1169550849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,6 +2713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1661021839}
   - component: {fileID: 1661021840}
+  - component: {fileID: 1661021841}
   m_Layer: 0
   m_Name: UI_Controller
   m_TagString: Untagged
@@ -2700,7 +2747,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4311624912fd65d4391004de54a145ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExitButton: {fileID: 597147608}
+  Button: {fileID: 597147608}
+--- !u!114 &1661021841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661021838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8de3f890132864489f8089765b6bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeHandler: {fileID: 1126513119}
+  LivesText: {fileID: 1169550851}
 --- !u!1 &1741048778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,7 +2796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 57.99997, y: -105}
+  m_AnchoredPosition: {x: 58, y: -105}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1844045012
