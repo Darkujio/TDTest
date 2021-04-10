@@ -16,4 +16,8 @@ public class LevelController : MonoBehaviour
     {
         return Lives;
     }
+    public int GetWavesAmount()
+    {
+        return Waves.Count;
+    }
 }

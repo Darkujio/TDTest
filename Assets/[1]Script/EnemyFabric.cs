@@ -32,7 +32,6 @@ public class EnemyFabric : MonoBehaviour
                 }
             }
         }
-        
         EnemiesGenerated?.Invoke();
         //Testing
         // foreach(WaveEnemies En in WavesEnemiesStorage)

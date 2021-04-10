@@ -27,11 +27,12 @@ public class Enemy : MonoBehaviour
         OnReady?.Invoke();
     }
 
-    void ChangeHeath(int amount)
+    public void ChangeHealth(int amount)
     {
         Health += amount;
         if (Health<1)
         {
+            Destroy(gameObject);
             OnDie?.Invoke();
         }
     }

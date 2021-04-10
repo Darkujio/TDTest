@@ -10,7 +10,9 @@ public class WaveController : MonoBehaviour
     List<WaveEnemies> WavesEnemiesStorage;
     List<Wave> Waves;
 
-    void Start()
+    public Action<int> CurrentWaveForUI;
+
+    void Awake()
     {
         EnemyFabric.EnemiesGenerated +=  FirstActivate;
     }
@@ -30,6 +32,7 @@ public class WaveController : MonoBehaviour
             i+= Waves[WaveNumber].Interval;
             StartCoroutine(Enemy(enemy,i));
         }
+        CurrentWaveForUI?.Invoke(WaveNumber);
         if (WaveNumber+1 < WavesEnemiesStorage.Count) StartCoroutine(NextWave(WaveNumber));
     }
 

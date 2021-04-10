@@ -11,7 +11,7 @@ public class LifeHandler : MonoBehaviour
 
     public Action OnLivesChange;
 
-    void Start()
+    void Awake()
     {
         EnemyFabric.EnemiesGenerated += Init;
     }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae367e8dce4fba4487ca94763a7390d, type: 3}
   m_Name: Tower1
   m_EditorClassIdentifier: 
-  Damage: 0
-  Radius: 0
-  ShootInterval: 0
+  Damage: 1
+  Radius: 5
+  ShootInterval: 1
   Price: 100

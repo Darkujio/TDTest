@@ -5,7 +5,7 @@ using System;
 
 public class EnemyMove : MonoBehaviour
 {
-    protected List<Vector3> PathDinamic;
+    public List<Vector3> PathDinamic;
     protected int Speed;
     bool Ready = false;
 
