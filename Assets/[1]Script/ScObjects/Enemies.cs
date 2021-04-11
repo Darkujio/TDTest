@@ -8,6 +8,8 @@ public class Enemies : ScriptableObject
     [SerializeField] private int Health;
     [SerializeField] private int Speed;
     [SerializeField] private int Damage;
+    [SerializeField] private int MinCoins;
+    [SerializeField] private int MaxCoins;
     [SerializeField] public GameObject EnemyPrefab;
 
     public int GetHealth
@@ -29,6 +31,20 @@ public class Enemies : ScriptableObject
         get
         {
             return Damage;
+        }
+    }
+    public int GetMinCoins
+    {
+        get
+        {
+            return MinCoins;
+        }
+    }
+    public int GetMaxCoins
+    {
+        get
+        {
+            return MaxCoins;
         }
     }
 }

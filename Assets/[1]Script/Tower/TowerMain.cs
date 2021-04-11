@@ -5,7 +5,8 @@ using System;
 
 public class TowerMain : MonoBehaviour
 {
-    [SerializeField]Tower TowerSO;
+    public Tower TowerSO;
+    [SerializeField] SpriteRenderer SpriteRenderer;
 
     public int Radius;
     public int Damage;
@@ -15,7 +16,7 @@ public class TowerMain : MonoBehaviour
     public Action StatsChanged;
     public Action ReadyToShoot;
 
-    void Start()
+    public void StartOnBuild()
     {
         Radius = TowerSO.GetRadius;
         Damage = TowerSO.GetDamage;
@@ -25,5 +26,7 @@ public class TowerMain : MonoBehaviour
         StatsChanged?.Invoke();
         ReadyToShoot?.Invoke();
 
+
+        SpriteRenderer.sprite = TowerSO.GetSprite;
     }
 }

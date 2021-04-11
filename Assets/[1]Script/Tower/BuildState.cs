@@ -5,7 +5,8 @@ using UnityEngine;
 public class BuildState : MonoBehaviour
 {
     [SerializeField] OnClick OnClick;
-    [SerializeField] GameObject Towers;
+    [SerializeField] GameObject Tower;
+    [SerializeField] TowerUI TowerUI;
     void Awake()
     {
         OnClick.Clicked += CheckMenu;
@@ -13,17 +14,24 @@ public class BuildState : MonoBehaviour
 
     void CheckMenu()
     {
-        if (Towers.activeSelf == false) BuildMenu();
-        else ChangeMenu();
+        StartCoroutine(CheckMenuClock());
     }
 
     void BuildMenu()
     {
-        print("WantToBuild");
+        TowerUI.ActivateUI(Tower);
     }
 
     void ChangeMenu()
     {
-        print("WantToSell");
+        TowerUI.ChangeUI(Tower);
+    }
+
+    IEnumerator CheckMenuClock()
+    {
+        yield return new WaitForSeconds(0.03f);
+        TowerUI.gameObject.transform.position = transform.position;
+        if (Tower.activeSelf == false) BuildMenu();
+        else ChangeMenu();
     }
 }

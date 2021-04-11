@@ -15,5 +15,7 @@ MonoBehaviour:
   Health: 5
   Speed: 2
   Damage: 1
+  MinCoins: 20
+  MaxCoins: 30
   EnemyPrefab: {fileID: 4524101957745418261, guid: 8746756f5799a0e4baa8a93495be3840,
     type: 3}

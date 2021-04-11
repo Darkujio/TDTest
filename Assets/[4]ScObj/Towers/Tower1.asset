@@ -16,3 +16,4 @@ MonoBehaviour:
   Radius: 5
   ShootInterval: 1
   Price: 100
+  TowerSprite: {fileID: 21300000, guid: 378c636b7f837a04aa464493fea356ef, type: 3}

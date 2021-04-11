@@ -20,4 +20,8 @@ public class LevelController : MonoBehaviour
     {
         return Waves.Count;
     }
+    public int StartCoins()
+    {
+        return Start_Coins;
+    }
 }

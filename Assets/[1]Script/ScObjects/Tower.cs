@@ -9,6 +9,7 @@ public class Tower : ScriptableObject
     [SerializeField] private int Radius;
     [SerializeField] private float ShootInterval;
     [SerializeField] private int Price;
+    [SerializeField] private Sprite TowerSprite;
 
     public int GetDamage
     {
@@ -36,6 +37,14 @@ public class Tower : ScriptableObject
         get
         {
             return Price;
+        }
+    }
+
+    public Sprite GetSprite
+    {
+        get
+        {
+            return TowerSprite;
         }
     }
 }

@@ -7,18 +7,17 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed;
     public GameObject target;
     public int Damage;
-    void Update()
+    void LateUpdate()
     {
-        if (target == null) return;
-
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed*Time.deltaTime);
+        if (target == null) Destroy(gameObject);
+        else transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed*Time.deltaTime);
     }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject == target)
         {
+            gameObject.SetActive(false);
             target.GetComponent<Enemy>().ChangeHealth(-Damage);
-            Destroy(gameObject);
         }
     }
 }

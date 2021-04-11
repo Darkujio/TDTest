@@ -7,6 +7,8 @@ using System;
 
 public class Enemy : MonoBehaviour
 {
+    int MinCoins;
+    int MaxCoins;
     private LineRenderer LR;
     protected int Health;
     public int Speed;
@@ -14,7 +16,7 @@ public class Enemy : MonoBehaviour
 
     public List<Vector3> Path;
 
-    public Action OnDie;
+    public Action<int,int> OnDie;
     public Action OnReady;
     
     public void GetStartingInfo(Enemies ScObj, LineRenderer lr)
@@ -23,6 +25,8 @@ public class Enemy : MonoBehaviour
         Health = ScObj.GetHealth;
         Speed = ScObj.GetSpeed;
         Damage = ScObj.GetDamage;
+        MinCoins = ScObj.GetMinCoins;
+        MaxCoins = ScObj.GetMaxCoins;
         Path = GetPath();
         OnReady?.Invoke();
     }
@@ -30,10 +34,10 @@ public class Enemy : MonoBehaviour
     public void ChangeHealth(int amount)
     {
         Health += amount;
-        if (Health<1)
+        if (Health<=0)
         {
             Destroy(gameObject);
-            OnDie?.Invoke();
+            OnDie?.Invoke(MinCoins, MaxCoins);
         }
     }
 
